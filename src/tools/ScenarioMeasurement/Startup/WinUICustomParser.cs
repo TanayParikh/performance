@@ -32,7 +32,6 @@ namespace ScenarioMeasurement
             int? pid = null;
             using (var source = new ETWTraceEventSource(mergeTraceFile))
             {
-
                 source.Kernel.ProcessStart += evt =>
                 {
                     if (processName.Equals(evt.ProcessName, StringComparison.OrdinalIgnoreCase) && pids.Contains(evt.ProcessID) && evt.CommandLine.Trim() == commandLine.Trim())
